@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card shadow p-4">
+    <h2>Approval Status</h2>
+
+    {% if employee.status == 'Approved' %}
+        <p style="color:green;"><strong>✅ Approved</strong></p>
+    {% elif employee.status == 'Rejected' %}
+        <p style="color:red;"><strong>❌ Rejected</strong></p>
+    {% else %}
+        <p style="color:orange;">Your uploaded documents are under verification.</p>
+    {% endif %}
+
+    <hr>
+
+    <h3>Uploaded Documents</h3>
+
+    {% if employee.aadhar %}
+        <p>Aadhar: <a href="{{ employee.aadhar.url }}" target="_blank">View</a></p>
+    {% else %}
+        <p>Aadhar: Not uploaded</p>
+    {% endif %}
+
+    {% if employee.resume %}
+        <p>Resume: <a href="{{ employee.resume.url }}" target="_blank">View</a></p>
+    {% else %}
+        <p>Resume: Not uploaded</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow p-4">
+
+    <h1>Company Details</h1>
+    <hr>
+
+    <!-- 1️⃣ Company Overview -->
+    <h2>About Us</h2>
+    <p>
+        Welcome to <strong>WorkSphere</strong>. We are a tech company focused on innovation and excellence.
+        Our mission is to simplify employee onboarding and enhance productivity.
+    </p>
+
+    <!-- 2️⃣ Departments & Teams -->
+    <h2>Departments</h2>
+    <ul>
+        <li><strong>HR</strong> – Employee relations & hiring</li>
+        <li><strong>Development</strong> – Product & software development</li>
+        <li><strong>Marketing</strong> – Promotions & branding</li>
+        <li><strong>Finance</strong> – Accounting & budget planning</li>
+    </ul>
+
+    <!-- 3️⃣ Policies & Guidelines -->
+    <h2>Policies</h2>
+    <ul>
+        <li><strong>Leave Policy</strong> – 12 leaves/year</li>
+        <li><strong>Work From Home</strong> – Allowed twice a week</li>
+        <li><strong>Dress Code</strong> – Smart Casual</li>
+        <li><strong>Attendance</strong> – Punch-in via mobile app</li>
+    </ul>
+
+    <!-- 4️⃣ Contact Information -->
+    <h2>Contacts</h2>
+    <p><strong>HR Email:</strong> hr@company.com</p>
+    <p><strong>IT Support:</strong> it@company.com</p>
+    <p><strong>Office Address:</strong> 123 Main Street, City</p>
+    <p><strong>Phone:</strong> +1 234 567 890</p>
+
+    <!-- 5️⃣ Resources & Downloads -->
+    <h2>Resources</h2>
+    <ul>
+        <li><a href="/media/employee_handbook.pdf" target="_blank">Download Employee Handbook</a></li>
+        <li><a href="/media/code_of_conduct.pdf" target="_blank">Download Code of Conduct</a></li>
+    </ul>
+
+    <!-- 6️⃣ Optional: Visuals & Infographics -->
+    <h2>Organizational Chart</h2>
+    <img src="/static/images/org_chart.png" alt="Org Chart" width="400">
+
+</div>
+
+{% endblock %}

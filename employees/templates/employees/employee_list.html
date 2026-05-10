@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4 text-center">
+    Employee Requests
+</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+
+        <th>Name</th>
+        <th>Department</th>
+        <th>Status</th>
+        <th>Documents</th>
+        <th>Actions</th>
+
+    </tr>
+
+    {% for emp in employees %}
+
+    <tr>
+
+        <td>{{ emp.full_name }}</td>
+
+        <td>{{ emp.department }}</td>
+
+        <td>{{ emp.status }}</td>
+
+        <td>
+
+            <a href="{{ emp.aadhar.url }}"
+               class="btn btn-dark btn-sm">
+                Aadhar
+            </a>
+
+            <a href="{{ emp.resume.url }}"
+               class="btn btn-secondary btn-sm">
+                Resume
+            </a>
+
+        </td>
+
+        <td>
+
+            <a href="/approve/{{ emp.id }}/"
+               class="btn btn-success btn-sm">
+                Approve
+            </a>
+
+            <a href="/reject/{{ emp.id }}/"
+               class="btn btn-danger btn-sm">
+                Reject
+            </a>
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

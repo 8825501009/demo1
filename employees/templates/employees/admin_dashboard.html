@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h1 class="text-center mb-4 fw-bold">
+        Admin Dashboard
+    </h1>
+
+    <!-- Dashboard Cards -->
+    <div class="row mb-5">
+
+        <div class="col-md-4">
+            <div class="card shadow text-center border-0">
+                <div class="card-body">
+                    <h5>Total Employees</h5>
+                    <h2 class="text-primary">
+                        {{ total_employees }}
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow text-center border-0">
+                <div class="card-body">
+                    <h5>Approved</h5>
+                    <h2 class="text-success">
+                        {{ approved }}
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow text-center border-0">
+                <div class="card-body">
+                    <h5>Pending</h5>
+                    <h2 class="text-warning">
+                        {{ pending }}
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Employee Table -->
+    <div class="card shadow border-0">
+
+    <div class="card-body">
+
+        <h3 class="mb-4 text-center">
+            Employee Requests
+        </h3>
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-hover">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Status</th>
+                        <th>Documents</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for employee in employees %}
+
+                    <tr>
+
+                        <td>{{ employee.name }}</td>
+
+                        <td>{{ employee.department }}</td>
+
+                        <td>{{ employee.status }}</td>
+
+                        <td>
+
+                            {% if employee.aadhar %}
+                            <a href="{{ employee.aadhar.url }}"
+                               class="btn btn-dark btn-sm"
+                               target="_blank">
+                                Aadhar
+                            </a>
+                            {% endif %}
+
+                            {% if employee.resume %}
+                            <a href="{{ employee.resume.url }}"
+                               class="btn btn-secondary btn-sm"
+                               target="_blank">
+                                Resume
+                            </a>
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+
+                            <a href="{% url 'approve_employee' employee.id %}"
+                               class="btn btn-success btn-sm">
+                                Approve
+                            </a>
+
+                            <a href="{% url 'reject_employee' employee.id %}"
+                               class="btn btn-danger btn-sm">
+                                Reject
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            No Employees Found
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <!-- Heading -->
+    <div class="card shadow p-4 mb-4">
+
+        <h1 class="text-primary">
+            Dashboard Access
+        </h1>
+
+        <p>
+            Employees can access onboarding tasks and updates here.
+        </p>
+
+    </div>
+
+
+    <!-- Quick Actions -->
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <div class="card shadow p-3 text-center">
+
+                <h5>Upload Documents</h5>
+
+                <a href="/upload-documents/"
+                   class="btn btn-primary mt-2">
+                    Open
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-3">
+
+            <div class="card shadow p-3 text-center">
+
+                <h5>Policies</h5>
+
+                <a href="/employees/policies/"
+                   class="btn btn-success mt-2">
+                    View
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-3">
+
+            <div class="card shadow p-3 text-center">
+
+                <h5>Approval Status</h5>
+
+                <a href="/approval-status/"
+                   class="btn btn-warning mt-2">
+                    Check
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-3">
+
+            <div class="card shadow p-3 text-center">
+
+                <h5>Company Details</h5>
+
+                <a href="/company-details/"
+                   class="btn btn-dark mt-2">
+                    Open
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Progress Bar -->
+    <div class="card shadow p-4 mt-5">
+
+        <h4>
+            Onboarding Progress
+        </h4>
+
+        <div class="progress mt-3">
+
+            <div class="progress-bar bg-success"
+                 style="width:70%">
+                70%
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Notifications -->
+    <div class="card shadow p-4 mt-5">
+
+        <h4>
+            Notifications
+        </h4>
+
+        <ul class="list-group mt-3">
+
+            <li class="list-group-item">
+                Documents verified successfully
+            </li>
+
+            <li class="list-group-item">
+                HR meeting on Monday
+            </li>
+
+            <li class="list-group-item">
+                Welcome kit ready for collection
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Employee Info -->
+    <div class="card shadow p-4 mt-5">
+
+        <h4>
+            Employee Information
+        </h4>
+
+        <p><strong>Name:</strong> John Doe</p>
+
+        <p><strong>Department:</strong> IT</p>
+
+        <p><strong>Status:</strong>
+            <span class="badge bg-success">
+                Approved
+            </span>
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

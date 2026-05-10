@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow p-4">
+
+    <h2>
+        Welcome {{ employee.full_name }}
+    </h2>
+
+    <hr>
+
+    {% if employee.profile_photo %}
+        <img src="{{ employee.profile_photo.url }}"
+             width="120"
+             class="mb-3">
+    {% endif %}
+
+    <p><strong>Email:</strong> {{ employee.email }}</p>
+
+    <p><strong>Department:</strong>
+        {{ employee.department }}
+    </p>
+
+    <p><strong>Designation:</strong>
+        {{ employee.designation }}
+    </p>
+
+    <p><strong>Status:</strong>
+
+        {% if employee.status == 'Approved' %}
+            <span class="badge bg-success">
+                Approved
+            </span>
+
+        {% elif employee.status == 'Rejected' %}
+            <span class="badge bg-danger">
+                Rejected
+            </span>
+
+        {% else %}
+            <span class="badge bg-warning text-dark">
+                Pending
+            </span>
+        {% endif %}
+
+    </p>
+
+    <hr>
+
+    <a href="{{ employee.aadhar.url }}"
+       class="btn btn-dark">
+        Download Aadhar
+    </a>
+
+    <a href="{{ employee.resume.url }}"
+       class="btn btn-secondary">
+        Download Resume
+    </a>
+
+</div>
+
+{% endblock %}

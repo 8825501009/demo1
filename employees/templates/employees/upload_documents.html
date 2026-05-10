@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow p-4">
+
+    <h1>Upload Documents Page</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Aadhar:</label>
+        <input type="file" name="aadhar"><br><br>
+
+        <label>Resume:</label>
+        <input type="file" name="resume"><br><br>
+
+        <button type="submit">Upload</button>
+    </form>
+
+    <hr>
+
+    <h2>Uploaded Documents</h2>
+
+    {% if employee.aadhar %}
+        <p>Aadhar: <a href="{{ employee.aadhar.url }}" target="_blank">View</a></p>
+    {% endif %}
+
+    {% if employee.resume %}
+        <p>Resume: <a href="{{ employee.resume.url }}" target="_blank">View</a></p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

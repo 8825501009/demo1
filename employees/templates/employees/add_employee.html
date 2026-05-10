@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Add Employee ➕</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="text" name="name" placeholder="Name" class="form-control mb-2">
+    <input type="email" name="email" placeholder="Email" class="form-control mb-2">
+    <input type="text" name="phone" placeholder="Phone" class="form-control mb-2">
+    <input type="text" name="department" placeholder="Department" class="form-control mb-2">
+
+    <input type="file" name="document" class="form-control mb-2">
+    
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+{% endblock %}

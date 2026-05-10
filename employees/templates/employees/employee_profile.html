@@ -1,0 +1,77 @@
+{% extends 'employees/base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>Employee Profile 👤</h2>
+
+    {% if employee.profile_image %}
+        <img src="{{ employee.profile_image.url }}" width="150" class="mb-3 rounded">
+    {% endif %}
+
+    <table class="table table-bordered">
+
+        <tr>
+            <th>Name</th>
+            <td>{{ employee.name }}</td>
+        </tr>
+
+        <tr>
+            <th>Email</th>
+            <td>{{ employee.email }}</td>
+        </tr>
+
+        <tr>
+            <th>Phone</th>
+            <td>{{ employee.phone }}</td>
+        </tr>
+
+        <tr>
+            <th>Department</th>
+            <td>{{ employee.department }}</td>
+        </tr>
+
+        <tr>
+            <th>Status</th>
+            <td>{{ employee.status }}</td>
+        </tr>
+
+    </table>
+
+    <a href="{% url 'edit_employee' employee.id %}" class="btn btn-warning mb-3">
+        Edit Profile
+    </a>
+
+    <h4>Documents 📁</h4>
+
+    {% if employee.resume %}
+        <p>
+            <b>Resume:</b>
+            <a href="{{ employee.resume.url }}" target="_blank">
+                View Resume
+            </a>
+        </p>
+    {% endif %}
+
+    {% if employee.aadhaar %}
+        <p>
+            <b>Aadhaar:</b>
+            <a href="{{ employee.aadhaar.url }}" target="_blank">
+                View Aadhaar
+            </a>
+        </p>
+    {% endif %}
+
+    {% if employee.pan %}
+        <p>
+            <b>PAN:</b>
+            <a href="{{ employee.pan.url }}" target="_blank">
+                View PAN
+            </a>
+        </p>
+    {% endif %}
+
+</div>
+
+{% endblock %}
