@@ -7,7 +7,7 @@ urlpatterns = [
 
     path('employees/register/', views.register, name='register'),
 
-    path('employees/login/', views.login, name='login'),
+    path('employees/login/', views.login_view, name='login'),
 
     path('employees/logout/', views.logout_view, name='logout'),
 
@@ -26,6 +26,7 @@ urlpatterns = [
         'reject/<int:id>/',
         views.reject_employee,   
     ),
+    path('employees/policies/', views.policies, name='policies'),
     path('company-policies/', views.policies, name='policies'),
     path('hr-instructions/', views.hr_instructions, name='hr_instructions'),
     path('upload-documents/', views.upload_documents, name='upload_documents'),

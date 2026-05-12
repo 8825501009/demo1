@@ -65,7 +65,6 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 
-
 # User Dashboard
 @login_required
 @login_required
